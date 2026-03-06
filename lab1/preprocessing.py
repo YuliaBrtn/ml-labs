@@ -18,3 +18,9 @@ print(df.describe())
 
 print("\nНазвания всех столбцов:")
 print(df.columns.tolist())
+
+
+#3. Получить количество пропущенных значений для каждого столбца в датасетах
+missing = df.isnull().sum()
+print("\nПропущенные значения по столбцам:")
+print(missing[missing > 0])
