@@ -7,3 +7,14 @@ df = pd.read_csv('Sleep_health_and_lifestyle_dataset.csv')
 
 print("Данные загружены, первые 5 строк: ")
 print(df.head())
+
+
+#2. Вывести с помощью python данные из датасета на экран
+print("\nИнформация о датасете:")
+df.info()
+
+print("\nСтатистическое описание числовых столбцов:")
+print(df.describe())
+
+print("\nНазвания всех столбцов:")
+print(df.columns.tolist())
