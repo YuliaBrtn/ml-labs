@@ -37,3 +37,17 @@ print(f"\nСтолбец Sleep Disorder заполнен модой: '{mode_slee
 
 print("\nПропуски после заполнения:")
 print(df.isnull().sum())
+
+
+#5. Провести нормализацию данных
+numeric_cols = ['Age', 'Sleep Duration', 'Quality of Sleep',
+                'Physical Activity Level', 'Stress Level',
+                'Heart Rate', 'Daily Steps']
+
+print("\nЧисловые столбцы для нормализации:", numeric_cols)
+
+scaler = MinMaxScaler()
+df[numeric_cols] = scaler.fit_transform(df[numeric_cols])
+
+print("\nПервые 5 строк после нормализации (только числовые столбцы):")
+print(df[numeric_cols].head())
