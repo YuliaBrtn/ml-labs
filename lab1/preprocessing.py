@@ -51,3 +51,17 @@ df[numeric_cols] = scaler.fit_transform(df[numeric_cols])
 
 print("\nПервые 5 строк после нормализации (только числовые столбцы):")
 print(df[numeric_cols].head())
+
+
+#6. Провести преобразование категориальных данных так, чтобы в будущем это не привело к переобучению модели машинного обучения
+#и датасет имел удобоваримый вид
+categorical_cols = df.select_dtypes(include=['object']).columns.tolist()
+print("\nКатегориальные столбцы:", categorical_cols)
+
+df_encoded = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
+
+print("\nРазмер исходного DataFrame:", df.shape)
+print("Размер после:", df_encoded.shape)
+
+print("\nПервые 5 строк после:")
+print(df_encoded.head())
